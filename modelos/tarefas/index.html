@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{TITULO}}</title>
+<style>
+  :root { --bg:#0c0c10; --card:#16161c; --tx:#eee; --mut:#9a9aa6; --am:#FACC15; }
+  @media (prefers-color-scheme: light) { :root { --bg:#f7f7f4; --card:#fff; --tx:#14141a; --mut:#5b5b66; } }
+  * { box-sizing: border-box }
+  body { margin:0; background:var(--bg); color:var(--tx); font:16px/1.5 system-ui, sans-serif; padding:24px 16px 96px }
+  main { max-width:720px; margin:0 auto }
+  h1 { font-size:28px; margin:0 0 4px } h1 span { color:var(--am) }
+  p.sub { color:var(--mut); margin:0 0 20px }
+  form { display:flex; gap:8px; margin-bottom:16px; flex-wrap:wrap }
+  input { flex:1 1 200px; min-width:0; padding:10px 12px; border-radius:10px; border:1px solid #444; background:var(--card); color:var(--tx); font:inherit }
+  button { padding:10px 16px; border:0; border-radius:10px; background:var(--am); color:#0c0c10; font-weight:700; cursor:pointer }
+  ul { list-style:none; padding:0; margin:0 }
+  li { display:flex; gap:10px; align-items:center; background:var(--card); border-radius:10px; padding:10px 12px; margin-bottom:8px }
+  li.feita .t { text-decoration:line-through; color:var(--mut) }
+  li .t { flex:1; min-width:0; overflow-wrap:anywhere }
+  li small { color:var(--mut) }
+  li .x { background:transparent; color:var(--mut); padding:4px 8px }
+  .barra { height:8px; background:#2a2a30; border-radius:99px; overflow:hidden; margin:8px 0 20px }
+  .barra i { display:block; height:100%; background:var(--am); width:0 }
+</style>
+</head>
+<body>
+<main>
+  <h1><span>●</span> {{TITULO}}</h1>
+  <p class="sub">Lista compartilhada: quem abre o link vê e mexe na mesma lista.</p>
+  <div class="barra"><i id="progresso"></i></div>
+  <form id="f"><input id="nova" placeholder="Nova tarefa" required maxlength="200"><button>Adicionar</button></form>
+  <ul id="lista"></ul>
+</main>
+<script>
+  const tarefas = () => livre.db("tarefas");
+  async function desenhar() {
+    const docs = await tarefas().listar().catch(() => []);
+    const ul = document.getElementById("lista"); ul.textContent = "";
+    docs.forEach((d) => {
+      const li = document.createElement("li"); if (d.dados.feita) li.className = "feita";
+      const cb = document.createElement("input"); cb.type = "checkbox"; cb.checked = !!d.dados.feita; cb.style.flex = "0 0 auto";
+      cb.onchange = () => tarefas().juntar(d.id, { feita: cb.checked });
+      const t = document.createElement("span"); t.className = "t"; t.textContent = d.dados.texto;
+      const quem = document.createElement("small"); quem.textContent = d.autor || "";
+      const x = document.createElement("button"); x.className = "x"; x.textContent = "✕"; x.title = "Apagar";
+      x.onclick = () => tarefas().apagar(d.id);
+      li.append(cb, t, quem, x); ul.appendChild(li);
+    });
+    const feitas = docs.filter((d) => d.dados.feita).length;
+    document.getElementById("progresso").style.width = (docs.length ? (100 * feitas / docs.length) : 0) + "%";
+  }
+  document.getElementById("f").onsubmit = async (e) => {
+    e.preventDefault(); const i = document.getElementById("nova");
+    await tarefas().criar({ texto: i.value.trim(), feita: false }); i.value = "";
+  };
+  window.addEventListener("livre:pronto", () => { livre.aoMudar(desenhar); desenhar(); });
+</script>
+</body>
+</html>
