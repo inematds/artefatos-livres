@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>Artefatos Livres: your pages by link, without depending on Claude</title>
+<title>Artefatos Livres: your pages on a link, without depending on Claude</title>
 <meta content="Free, open kit: pages by link, versions on the same link, install as an app, team data and comments on a server of your own, with any AI." name="description"/>
 <meta content="Artefatos Livres: your team's page on a link of your own" property="og:title"/>
 <meta content="What Claude Artifacts do, on a server of your own and with any AI. Free." property="og:description"/>
@@ -172,7 +172,7 @@
 </style>
 <style>
   .pedido{position:relative;background:var(--card);border:1px solid var(--amb);border-radius:12px;padding:16px 18px 16px;margin-top:10px}
-  .pedido p{margin:0;color:var(--txt);font-size:.95rem;padding-right:84px}
+  .pedido p{margin:0;color:var(--txt);font-size:.95rem;padding-right:84px;overflow-wrap:anywhere}
   .copiar{position:absolute;top:10px;right:10px;background:var(--fill);color:#1a1206;border:0;border-radius:8px;padding:.35em .8em;font:600 .82rem Sora;cursor:pointer}
   @media(max-width:520px){.pedido p{padding-right:0;padding-top:30px}}
 </style>
@@ -192,7 +192,7 @@
 <a class="sec opt" href="#dia">In your day</a>
 <a class="sec opt" href="#como">How it works</a>
 <a class="sec" href="#comecar">Getting started</a>
-<a class="sec opt" href="#base">Basis</a>
+<a class="sec opt" href="#base">Sources</a>
 <a class="sec" href="#prova">The proof</a>
 <span class="lang"><a href="../">PT</a><a class="on" href="./">EN</a><a href="../es/">ES</a></span>
 <button aria-label="Toggle theme" class="tgl" id="themeToggle" title="Toggle theme">🌙</button>
@@ -205,7 +205,7 @@
 <div class="h-top"><span class="chip">Free kit · open source · works with any AI</span>
 <h1>The page your team uses every day, on a link of your own. <span class="amb">Artefatos Livres</span>: without depending on Claude</h1></div>
 <figure class="f1"><img alt="A web page leaving a locked cloud and moving to a small server on a desk" src="../assets/hero.jpg"/></figure>
-<div class="h-bot"><p class="lead">You ask an AI for a task list, a sign-up sheet or a dashboard, and send the link to your team. Today that lives in another company's account, and anyone who opens it needs an account there. With Artefatos Livres the same page sits at an address of your own: it opens by link, gets a new version without changing the link, installs as an app, and keeps your team's data with you.</p>
+<div class="h-bot"><p class="lead">You ask an AI for a task list, a sign-up sheet or a dashboard, and send the link to your team. Today that lives in another company's account, and whoever opens it needs an account there. With Artefatos Livres the same page sits at an address of your own: it opens by link, gets a new version without changing the link, installs as an app and keeps your team's data with you.</p>
 <div class="cta">
 <a class="btn" href="#explicado">What you get</a>
 <a class="btn ghost" href="#comecar">Getting started</a>
@@ -216,120 +216,121 @@
 <main>
 <section class="resumo" id="resumo"><div class="wrap">
 <span class="chip">In one sentence</span>
-<p><strong>You want the convenience of sending a link and having everyone use the same page, without handing your team and your data over to a single company.</strong> Artefatos Livres is a free kit that does, on a computer or server of your own, what Claude Artifacts do: a page opened by link (private by default), a new version at the same address, install as an app, shared lists and sign-ups, and comments. Any AI writes the page (Claude, Codex, Gemini or a model on your PC), or you do it yourself. To use it, all you need is a computer with Python, which already comes on Mac and Linux, and to ask your AI to install it.</p>
+<p><strong>You want the convenience of sending a link and having everyone use the same page, without handing your team and your data over to a single company.</strong> Artefatos Livres is a free kit that does, on a computer or server of your own, what Claude Artifacts do: a page opened by link (private by default), a new version at the same address, install as an app, shared lists and sign-ups, and comments. Any AI writes the page (Claude, Codex, Gemini or a model on your PC), or you do it yourself. To use it, all you need is a computer and to ask your AI to install it (it installs Python if it's missing).</p>
 </div></section>
 <section id="explicado"><div class="wrap">
 <span class="chip">The gain</span>
 <h2>From a page stuck in an account <span class="amb">to a page that is yours</span></h2>
 <div class="grid g2">
-<div class="card"><h3>😟 Today</h3><p>The team list, the training, the week's dashboard: everything lives inside Claude. Whoever opens it has to sign in with a Claude account. If the plan, the rules or the price change, you change along with them.</p><p>And the new "install as app" is beta: only on Mac and Windows, no Linux, web or phone.</p></div>
-<div class="card"><h3>😌 With Artefatos Livres</h3><p>The same page sits at an address of your own. Whoever opens it only needs the link. The new version goes on the same link and the old one stays saved. The data lives in a file on your machine and comes out whenever you want, as a spreadsheet.</p><p>And the AI that writes the page is the one you choose.</p></div>
+<div class="card"><h3>😟 Today</h3><p>The team list, the training, the week's dashboard: it all lives inside Claude. Whoever opens it has to sign in with a Claude account. If the plan, the rule or the price changes, you change with it.</p><p>And the new "install as app" is beta: Mac and Windows only, no Linux, web or phone.</p></div>
+<div class="card"><h3>😌 With Artefatos Livres</h3><p>The same page sits at an address of your own. Whoever opens it only needs the link. The new version goes on the same link and the old one stays saved. The data lives in a file on your machine and leaves whenever you want, as a spreadsheet.</p><p>And the AI that writes the page is the one you choose.</p></div>
 </div>
 <div class="stats">
 <div class="stat"><b>45 million</b><span>documents, presentations and designs have already been made inside Claude, according to Anthropic. A lot of work living in a single account.</span></div>
-<div class="stat"><b>0 accounts</b><span>for whoever opens your page: the link is all it takes. The link's key is the access.</span></div>
-<div class="stat"><b>4 systems</b><span>where the page installs as an app: Windows, Mac, Linux and Android (Chrome or Edge browser).</span></div>
+<div class="stat"><b>0 accounts</b><span>for whoever opens your page: the link is enough. The link's key is the access. To open it from outside the company, the page needs to be on a server connected to the internet.</span></div>
+<div class="stat"><b>4 systems</b><span>where the page installs as an app: Windows, Mac, Linux and Android (Chrome or Edge), with the page on a secure address (https).</span></div>
 </div>
-<p class="fonte">45 million: Anthropic launch post shown in the apps announcement (Nov/2026). Claude app systems: <a href="https://support.claude.com/en/articles/18516354-install-an-artifact-as-an-app" rel="noopener" target="_blank">Claude help center</a>, checked on 25/11/2026.</p>
+<p class="fonte">45 million: Anthropic launch post shown in the apps announcement (Nov/2026). Claude app systems: <a href="https://support.claude.com/en/articles/18516354-install-an-artifact-as-an-app" rel="noopener" target="_blank">Claude help center</a>, checked on 11/25/2026.</p>
 </div></section>
 <section id="quem"><div class="wrap">
 <span class="chip">Who it's for</span>
 <h2>What each person <span class="amb">gets</span></h2>
 <div class="grid g3">
-<div class="card"><img alt="Small-business manager looks at their phone while the team meets" class="quem-img" loading="lazy" src="../assets/quem-gestor.jpg"/><h3>🧑‍💼 Whoever manages a team</h3><p><strong>You get:</strong> the week's task list, the new-hire checklist and the week's scoreboard on a single link, which the team opens without creating an account anywhere.</p><p><strong>And more:</strong> at the end of the month you download everything as a spreadsheet.</p></div>
-<div class="card"><img alt="Instructor shows the sign-up list to the class on a tablet" class="quem-img" loading="lazy" src="../assets/quem-professor.jpg"/><h3>👩‍🏫 Whoever teaches or organizes events</h3><p><strong>You get:</strong> a sign-up sheet, an attendance list and a quiz that students open by link, and everyone sees the same list right away.</p><p><strong>And more:</strong> each student installs the page as an app on their Android phone.</p></div>
-<div class="card"><img alt="Technician at home with a laptop and a mini server with amber light" class="quem-img" loading="lazy" src="../assets/quem-tecnico.jpg"/><h3>🛠️ Whoever manages the technology</h3><p><strong>You get:</strong> a small server with no dependencies that you can understand end to end, runs on a VPS or a mini PC, and lets any AI write the pages.</p><p><strong>And more:</strong> if you want, the page queries the AI you connect, on your account, not on the account of whoever opens it.</p></div>
+<div class="card"><img alt="Small-business manager looks at their phone while the team meets" class="quem-img" loading="lazy" src="../assets/quem-gestor.jpg"/><h3>🧑‍💼 Whoever looks after a team</h3><p><strong>You get:</strong> the week's task list on a single link, which the team opens without creating an account anywhere. The new-hire checklist or the week's scoreboard, your AI builds from the same template.</p><p><strong>And more:</strong> at the end of the month you download everything as a spreadsheet.</p></div>
+<div class="card"><img alt="Instructor shows the class the sign-up list on a tablet" class="quem-img" loading="lazy" src="../assets/quem-professor.jpg"/><h3>👩‍🏫 Whoever teaches or organizes events</h3><p><strong>You get:</strong> a sign-up sheet that students open by link, and everyone sees the same list instantly. Attendance list or quiz, your AI builds from the sign-up template.</p><p><strong>And more:</strong> each student installs the page as an app on their Android phone.</p></div>
+<div class="card"><img alt="Tech person at home with a laptop and a mini server with amber light" class="quem-img" loading="lazy" src="../assets/quem-tecnico.jpg"/><h3>🛠️ Whoever looks after the technology</h3><p><strong>You get:</strong> a small server, with no dependencies, that you understand entirely, runs on a rented server or a mini PC and hands over to any AI to write the pages.</p><p><strong>And more:</strong> if you want, the page queries the AI you connect, on your account, not on the account of whoever opens it.</p></div>
 </div>
 </div></section>
 <section id="dia"><div class="wrap">
 <span class="chip">In your day</span>
 <h2>How this changes <span class="amb">your week</span></h2>
 <div class="grid g3">
-<div class="card"><h3>📋 Monday's tasks</h3><p><strong>Today:</strong> the list goes out by message, everyone ticks off a different copy and nobody knows what's done.</p><p><strong>With the kit:</strong> one link, the same list for everyone, and whoever ticks something off shows up right away for the others.</p></div>
-<div class="card"><h3>📝 Training sign-up</h3><p><strong>Today:</strong> a third-party form, a spreadsheet exported by hand, and the student can't see whether the class is full.</p><p><strong>With the kit:</strong> the sheet shows how many have already signed up, one sign-up per person, and comes out as a spreadsheet whenever you ask.</p></div>
-<div class="card"><h3>💬 "Change this here"</h3><p><strong>Today:</strong> the comment arrives in the group chat, gets lost, and you resend a new file with every tweak.</p><p><strong>With the kit:</strong> the comment stays on the page itself; you ask your AI for the change, publish, and the link stays the same.</p></div>
+<div class="card"><h3>📋 Monday's tasks</h3><p><strong>Today:</strong> the list goes out by message, each person ticks on a different copy and nobody knows what's done.</p><p><strong>With the kit:</strong> one link, the same list for everyone, and whoever ticks shows up instantly for the others.</p></div>
+<div class="card"><h3>📝 Training sign-up</h3><p><strong>Today:</strong> a third-party form, a spreadsheet exported by hand, and the student can't see if the class is full.</p><p><strong>With the kit:</strong> the sheet shows how many have signed up, one sign-up per name, and comes out as a spreadsheet whenever you ask.</p></div>
+<div class="card"><h3>💬 "Change this here"</h3><p><strong>Today:</strong> the comment arrives in the group chat, gets lost, and you resend a new file with every tweak.</p><p><strong>With the kit:</strong> the comment stays on the page itself; you ask your AI for the tweak, publish, and the link stays the same.</p></div>
 </div>
 <div class="tl-wrap" style="margin-top:28px">
 <ol class="tl">
 <li><b>08:30</b> — you ask the AI: "make this week's team task list". It writes the page and publishes it.</li>
-<li><b>08:35</b> — you send the link to the group. Each person opens it, adds their name and picks up their tasks.</li>
-<li><b>11:00</b> — someone comments on the page: "add a deadline to each task". You ask the AI for the change; version 2 goes on the same link.</li>
+<li><b>08:35</b> — you send the link to the group. Each person opens it (from home too, if the kit is on a server on the internet), enters their name and picks up their tasks.</li>
+<li><b>11:00</b> — someone comments on the page: "put a deadline on each task". You ask the AI for the tweak; version 2 goes on the same link.</li>
 <li><b>18:00</b> — the progress bar shows the day. On Friday, you download everything as a spreadsheet.</li>
 </ol>
 </div>
 </div></section>
 <section id="video"><div class="wrap">
 <span class="chip">Video</span>
-<h2>Understand it in <span class="amb">a few minutes</span></h2>
+<h2>Video in production</h2>
 <!-- VIDEO: entra o explicavideo do projeto quando publicado -->
+<p class="sub">This kit's video is in production and will appear here when it is published. In the meantime, the step-by-step is in <a href="#comecar">Getting started</a>.</p>
 </div></section>
 <section id="como"><div class="wrap">
 <span class="chip">How it works</span>
 <h2>Six pieces, <span class="amb">no jargon</span></h2>
 <figure style="margin:0 0 26px;border-radius:16px;overflow:hidden;border:1px solid var(--line)"><img alt="The six pieces of Artefatos Livres" src="../assets/banner-grade-en.jpg" style="width:100%;display:block"/></figure>
 <div class="grid g3">
-<div class="card"><h3>🔑 Link with a key</h3><p>Like the key to a room: whoever has the link gets in, whoever doesn't sees "private page". Want to remove someone? Change the key and send the new link.</p></div>
-<div class="card"><h3>📚 New version, same link</h3><p>Like a notebook with numbered pages: the link always shows the latest, and every earlier version stays saved under its own number.</p></div>
-<div class="card"><h3>📲 Install as an app</h3><p>In Chrome or Edge an "install" option appears. The page gets an icon and its own window, like any program, and opens even without internet with the last version seen.</p></div>
-<div class="card"><h3>🗂️ Team data</h3><p>Like a board on the wall of the room: what one person writes, the others see within a few seconds. It lives in a file on your computer, not in someone else's cloud.</p></div>
-<div class="card"><h3>💬 Comments</h3><p>A button in the corner of every page. The team leaves a note there, with name and time, and you take the note to whichever AI you like.</p></div>
-<div class="card"><h3>🧳 Take everything with you</h3><p>One command gathers the page, the versions and the data (as a spreadsheet and as text) into a folder of your own. The access key doesn't go along.</p></div>
+<div class="card"><h3>🔑 Link with a key</h3><p>Like the key to a room: whoever has the link gets in, whoever doesn't gets "private page". Want to remove someone? Ask your AI to change the key and send the new link.</p></div>
+<div class="card"><h3>📚 New version, same link</h3><p>Like a notebook with numbered pages: the link always shows the latest, and each earlier version stays saved under its number.</p></div>
+<div class="card"><h3>📲 Install as an app</h3><p>In Chrome or Edge, "install" appears when the page is on a secure address (https). It gets an icon and its own window, like any program, and opens even without internet with the last version seen.</p></div>
+<div class="card"><h3>🗂️ Team data</h3><p>Like a board on the wall of the room: what one person writes, the others see within seconds. It lives in a file on your computer, not in someone else's cloud.</p></div>
+<div class="card"><h3>💬 Comments</h3><p>A button in the corner of every page. The team leaves the note there, with name and time, and you take the note to whichever AI you like.</p></div>
+<div class="card"><h3>🧳 Take everything with you</h3><p>One command gathers the page, the versions and the data (as a spreadsheet and as text) into a folder of yours. The access key doesn't go with it.</p></div>
 </div>
-<div class="card" style="margin-top:16px"><h3>🤖 And AI inside the page?</h3><p>Optional and off at first. If you turn it on, the page can ask questions to the AI that <strong>you</strong> choose (Claude, Codex or a model on your PC), on your account, with a limit of questions per person.</p></div>
+<div class="card" style="margin-top:16px"><h3>🤖 And the AI inside the page?</h3><p>Optional and off at first. If you turn it on, the page can ask questions to the AI that <strong>you</strong> choose (Claude, Codex or a model on your PC), on your account, with a limit of questions per person.</p></div>
 <div class="grid g2" style="margin-top:16px">
 <div class="card"><h3>✅ What the kit does</h3><ul><li>page by link, private by default</li><li>versions on the same link</li><li>install as an app (Windows, Mac, Linux, Android)</li><li>shared lists and sign-ups, comments</li><li>export everything as a spreadsheet</li></ul></div>
-<div class="card"><h3>🚫 What it doesn't promise</h3><ul><li>connecting to your company's Gmail, Slack or database (Claude's "connectors")</li><li>tagging the AI in a comment and having it fix things on its own</li><li>per-person login and roles (the boss sees everything, the student sees only their own)</li><li>ready-made templates for documents, slides and spreadsheets</li></ul></div>
+<div class="card"><h3>🚫 What it doesn't promise</h3><ul><li>connecting to Gmail, Slack or the company database (Claude's "connectors")</li><li>tagging the AI in a comment and having it fix things on its own</li><li>per-person login and roles (the boss sees everything, the student sees only their own)</li><li>ready-made templates for documents, slides and spreadsheets</li></ul></div>
 </div>
 </div></section>
 <section id="comecar"><div class="wrap">
 <span class="chip">Getting started</span>
 <h2>You install nothing <span class="amb">by hand</span></h2>
-<div class="step"><div class="b">1</div><div><h3>Open Claude Code or Codex in a folder of your own</h3><p>It can be on your computer or on a VPS. If the idea is not to depend on Claude, use Codex, Gemini CLI or another agent: the request below works the same.</p></div></div>
+<div class="step"><div class="b">1</div><div><h3>Open an AI agent on your computer</h3><p>An agent is the AI that, besides chatting, works on files and installs programs on your computer, always asking permission. The most used: <a href="https://claude.com/product/claude-code" rel="noopener" target="_blank">Claude Code</a> (from Anthropic) and <a href="https://developers.openai.com/codex" rel="noopener" target="_blank">Codex</a> (from OpenAI). If the idea is not to depend on Claude, use Codex or another: the request below works the same. Open the agent in an empty folder, created for this.</p></div></div>
 <div class="step"><div class="b">2</div><div><h3>Paste the request</h3><p>The AI reads the kit, looks at what you do today and explains in plain language what is worth bringing over.</p>
-<div class="pedido"><button class="copiar" type="button">Copy</button><p id="pedido">Read the repository https://github.com/inematds/artefatos-livres (the README and CONTRATO.md). Then ask me which pages, lists or spreadsheets my team uses today by link (including Claude artifacts) and tell me, in plain language: which ones could become an Artefatos Livres page, where to run it (on my computer, on a VPS or only as a static page) and what I would lose compared to Claude. Do not install or change anything before my yes. With my yes: download the kit, run the tests, create the first page from the template that makes the most sense, publish it, start the server and send me the link so I can open it.</p></div></div></div>
-<div class="step"><div class="b">3</div><div><h3>Say yes to whatever makes sense</h3><p>Open the link it sends, add your name, send it to someone on the team and watch the two of you work on the same list.</p></div></div>
+<div class="pedido"><button class="copiar" type="button">Copy</button><p id="pedido">Read the repository https://github.com/inematds/artefatos-livres (the README and CONTRATO.md). Then ask me which pages, lists or spreadsheets my team uses today by link (including Claude artifacts) and tell me, in plain language: which ones could become an Artefatos Livres page, where to run it (on my computer, on a rented server on the internet or just as a static page) and what I would lose compared to Claude. Don't install or change anything before my yes. With my yes: download the kit, run the tests, create the first page from the template that makes the most sense, publish it, start the server and send me the link so I can open it.</p></div></div></div>
+<div class="step"><div class="b">3</div><div><h3>Say yes to what makes sense</h3><p>Open the link it sends, enter your name, send it to someone on the team and watch the two of you editing the same list.</p></div></div>
 <div class="grid g2" style="margin-top:10px">
-<div class="card"><h3>🌐 Just want to use it, without installing?</h3><p>There is no online version of ours: the whole idea is for the page to stay with you. The closest thing is publishing just the page (without the shared data) on free hosting such as GitHub Pages; then each person keeps their own data in the browser.</p></div>
-<div class="card"><h3>⬇️ Where to download?</h3><p>There is no installer: it's a folder with a Python program. Download the <a href="https://github.com/inematds/artefatos-livres/archive/refs/heads/main.zip">kit ZIP</a> or see the <a href="https://github.com/inematds/artefatos-livres" rel="noopener" target="_blank">repository</a>.</p></div>
+<div class="card"><h3>🌐 Just want to use it, without installing?</h3><p>There is no online version of ours: the whole idea is that the page stays with you. The closest thing is publishing only the page (without the shared data) on free hosting like GitHub Pages; then each person keeps their own data in the browser.</p></div>
+<div class="card"><h3>⬇️ Where to download?</h3><p>There is no installer: it's a folder with a program in Python. Download the <a href="https://github.com/inematds/artefatos-livres/archive/refs/heads/main.zip">kit ZIP</a> or see the <a href="https://github.com/inematds/artefatos-livres" rel="noopener" target="_blank">repository</a>.</p></div>
 </div>
-<div class="card" style="margin-top:16px"><h3>🧑‍💻 Are you technical?</h3><p>Commands, how to put it on a VPS with a secure address (HTTPS), security and tests are in the README.</p><p><a class="btn" href="https://github.com/inematds/artefatos-livres#instalação-técnica" rel="noopener" target="_blank">See the technical part (in Portuguese)</a></p></div>
+<div class="card" style="margin-top:16px"><h3>🧑‍💻 Are you technical?</h3><p>Commands, how to put it on a rented server with a secure address (https), security and tests are in the README.</p><p><a class="btn" href="https://github.com/inematds/artefatos-livres/blob/main/README.en.md#technical-installation" rel="noopener" target="_blank">See the technical part</a></p></div>
 </div></section>
 <section id="base"><div class="wrap">
 <span class="chip">Where it comes from</span>
 <h2>Anthropic itself <span class="amb">points the way out</span></h2>
 <div class="grid g2">
-<div class="card"><h3>📄 "Install an artifact as an app" (Claude help center)</h3><p>Beta, on all plans, only in Claude for Mac and Windows. Not available on Linux, the web or phones. Artifacts made from templates (Docs, Slides, Sheets) can't be installed. Anthropic does not review the apps before you install them.</p><p><a href="https://support.claude.com/en/articles/18516354-install-an-artifact-as-an-app" rel="noopener" target="_blank">Read the article</a></p></div>
-<div class="card"><h3>📄 Artifacts documentation</h3><p>In the help center: artifacts start out private, whoever opens one signs in with their Claude account, and usage counts against each person's plan. In the Claude Code documentation, under "what an artifact is not": a single page, with no server behind it; "for an internal tool with a server, publish it on your own infrastructure".</p><p><a href="https://support.claude.com/en/articles/17153992-what-are-artifacts-and-how-do-i-use-them" rel="noopener" target="_blank">Read about artifacts</a></p></div>
+<div class="card"><h3>📄 "Install artifact as an app" (Claude help center)</h3><p>Beta, on all plans, only in Claude for Mac and Windows. Not available on Linux, the web or phones. Artifacts made from templates (Docs, Slides, Sheets) can't be installed. Anthropic doesn't review the apps before you install them.</p><p><a href="https://support.claude.com/en/articles/18516354-install-an-artifact-as-an-app" rel="noopener" target="_blank">Read the article</a></p></div>
+<div class="card"><h3>📄 Artifacts documentation</h3><p>In the help center: artifacts start private, whoever opens them signs in with a Claude account and the usage counts against each person's plan. In the Claude Code documentation, under "what an artifact is not": a single page, with no server behind it; "for an internal tool with a server, publish it on your own infrastructure".</p><p><a href="https://support.claude.com/en/articles/17153992-what-are-artifacts-and-how-do-i-use-them" rel="noopener" target="_blank">Read about artifacts</a></p></div>
 </div>
-<p class="fonte">Artefatos Livres is not from Anthropic nor affiliated with it. It copies the idea (page by link, versions, app, data, comments) with open web pieces: the app is a PWA, a standard browser feature, and the data lives in a SQLite database, an ordinary file.</p>
+<p class="fonte">Artefatos Livres is not from Anthropic nor affiliated with it. It copies the idea (page by link, versions, app, data, comments) with open web pieces: the app uses a standard browser feature, and the data lives in an ordinary file on your server.</p>
 </div></section>
 <section id="prova"><div class="wrap">
 <span class="chip">The proof</span>
 <h2>Tested with <span class="amb">two people on the same list</span></h2>
 <div class="prova">
 <ol class="tl">
-<li><b>Ana and Bia open the same link</b> in two separate browsers, like two people in different homes.</li>
-<li><b>Ana creates the task "Send proposal".</b> Within a few seconds it shows up on Bia's screen.</li>
-<li><b>Bia marks it as done.</b> Ana's screen strikes the task through and the progress bar fills up.</li>
-<li><b>Bia comments</b> "can you add a deadline to each task?". The note shows up for Ana, with name and time.</li>
-<li><b>The browser recognizes the page as an app</b> (the icon and the "install" option appear) and it opens without internet with the last version.</li>
+<li><b>Ana and Bia open the same link</b> in two separate browsers, like two people in different houses.</li>
+<li><b>Ana creates the task "Send proposal".</b> Within seconds it shows up on Bia's screen.</li>
+<li><b>Bia marks it as done.</b> Ana's screen crosses out the task and the progress bar fills up.</li>
+<li><b>Bia comments</b> "can you put a deadline on each task?". The note appears for Ana, with name and time.</li>
+<li><b>The browser recognizes the page as an app</b> (the icon and the "install" appear) and it opens without internet with the last version.</li>
 </ol>
-<blockquote>No AI took part in the test: the kit runs on its own. The test found a real defect (the link's key wasn't reaching the data and the page fell back to "this browser only" mode), fixed before publishing.</blockquote>
-<p class="rod">Besides the browser test, 18 automated tests check link with key, versions, app, data, comments, optional AI and export. Done on 25/11/2026, Linux, Chromium and Python 3.</p>
+<blockquote>No AI took part in the test: the kit runs on its own. The test found a real bug (the link's key didn't reach the data and the page fell back to "this browser only" mode), fixed before publishing.</blockquote>
+<p class="rod">Besides the browser test, 18 automated tests check link with key, versions, app, data, comments, optional AI and export. Done on 11/25/2026, Linux, Chromium and Python 3.</p>
 </div>
 </div></section>
 <section id="faq"><div class="wrap">
 <span class="chip">Questions</span>
 <h2>Before <span class="amb">you ask</span></h2>
 <div class="grid g2">
-<div class="card"><h3>Do I need to code?</h3><p>No. You ask your AI with the text from "Getting started". To change the page, you just ask as well.</p></div>
-<div class="card"><h3>Does it cost anything?</h3><p>The kit is free and open. On your computer, zero cost. For everyone to open it from outside, you need a server of your own (a small VPS will do).</p></div>
-<div class="card"><h3>So do I drop Claude?</h3><p>You don't have to. Use Claude, Codex or another AI to write the pages. What changes is where the page and the data live: with you.</p></div>
-<div class="card"><h3>Is it OK for sensitive data?</h3><p>Whoever has the link gets in and can edit. For salaries, health or customer data, use a system with per-person login. The kit is for everyday "small software".</p></div>
-<div class="card"><h3>Does it work on a phone?</h3><p>It opens on any phone. Installing as an app works on Android through Chrome; on iPhone, use Safari's "Add to Home Screen".</p></div>
-<div class="card"><h3>What if I already have artifacts in Claude?</h3><p>An artifact's content is an ordinary page. Ask the AI to bring it into the kit following the repository's contract; you export the data from Claude and import it into the page.</p></div>
+<div class="card"><h3>Do I need to program?</h3><p>No. You ask your AI with the text from "Getting started". To change the page, you just ask too.</p></div>
+<div class="card"><h3>Does it cost anything?</h3><p>The kit is free and open. On your computer, zero cost, but only people on the same network can open it. For everyone to open it from anywhere, you need a server connected to the internet: a rented computer that stays on all the time (the smallest cost a few dollars a month) or a mini PC of your own. For "install as app" to appear, it needs an https address; your AI sets that up.</p></div>
+<div class="card"><h3>So do I drop Claude?</h3><p>No need. Use Claude, Codex or another AI to write the pages. What changes is where the page and the data live: with you.</p></div>
+<div class="card"><h3>Is it OK for sensitive data?</h3><p>Whoever has the link gets in and edits. For salaries, health or customer data, use a system with per-person login. The kit is for everyday "small software".</p></div>
+<div class="card"><h3>Does it work on a phone?</h3><p>It opens on any phone. Installing as an app works on Android through Chrome, with the page on a secure address (https); on iPhone, use Safari's "Add to Home Screen".</p></div>
+<div class="card"><h3>What if I already have artifacts in Claude?</h3><p>An artifact's content is an ordinary page. Ask the AI to bring it into the kit following the repository's contract; you export the data from Claude and ask the AI to load it into the new page.</p></div>
 </div>
-<p class="sub" style="margin-top:28px">Which page would your team use first if it were truly yours? Come tell us and see other free kits at <a href="https://inema.club" rel="noopener" target="_blank">inema.club</a>, right on the internet.</p>
+<p class="sub" style="margin-top:28px">Which page would your team use first if it were truly yours? Come tell us and see other free kits at <a href="https://inema.club" rel="noopener" target="_blank">inema.club</a>, straight on the internet.</p>
 </div></section>
 </main>
 <footer><div class="wrap">

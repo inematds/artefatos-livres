@@ -172,7 +172,7 @@
 </style>
 <style>
   .pedido{position:relative;background:var(--card);border:1px solid var(--amb);border-radius:12px;padding:16px 18px 16px;margin-top:10px}
-  .pedido p{margin:0;color:var(--txt);font-size:.95rem;padding-right:84px}
+  .pedido p{margin:0;color:var(--txt);font-size:.95rem;padding-right:84px;overflow-wrap:anywhere}
   .copiar{position:absolute;top:10px;right:10px;background:var(--fill);color:#1a1206;border:0;border-radius:8px;padding:.35em .8em;font:600 .82rem Sora;cursor:pointer}
   @media(max-width:520px){.pedido p{padding-right:0;padding-top:30px}}
 </style>
@@ -192,7 +192,7 @@
 <a class="sec opt" href="#dia">No seu dia</a>
 <a class="sec opt" href="#como">Como funciona</a>
 <a class="sec" href="#comecar">Como começar</a>
-<a class="sec opt" href="#base">Base</a>
+<a class="sec opt" href="#base">Fontes</a>
 <a class="sec" href="#prova">A prova</a>
 <span class="lang"><a class="on" href="./">PT</a><a href="en/">EN</a><a href="es/">ES</a></span>
 <button aria-label="Alternar tema" class="tgl" id="themeToggle" title="Alternar tema">🌙</button>
@@ -216,7 +216,7 @@
 <main>
 <section class="resumo" id="resumo"><div class="wrap">
 <span class="chip">Em uma frase</span>
-<p><strong>Você quer a praticidade de mandar um link e todo mundo usar a mesma página, sem entregar a sua equipe e os seus dados a uma única empresa.</strong> O Artefatos Livres é um kit gratuito que faz, num computador ou servidor seu, o que os Artifacts do Claude fazem: página aberta por link (privada por padrão), versão nova no mesmo endereço, instalar como aplicativo, lista e cadastro compartilhados e comentários. Qualquer IA escreve a página (Claude, Codex, Gemini ou um modelo no seu PC), ou você mesmo. Para usar, basta um computador com Python, que já vem no Mac e no Linux, e pedir à sua IA que instale.</p>
+<p><strong>Você quer a praticidade de mandar um link e todo mundo usar a mesma página, sem entregar a sua equipe e os seus dados a uma única empresa.</strong> O Artefatos Livres é um kit gratuito que faz, num computador ou servidor seu, o que os Artifacts do Claude fazem: página aberta por link (privada por padrão), versão nova no mesmo endereço, instalar como aplicativo, lista e cadastro compartilhados e comentários. Qualquer IA escreve a página (Claude, Codex, Gemini ou um modelo no seu PC), ou você mesmo. Para usar, basta um computador e pedir à sua IA que instale (ela instala o Python se faltar).</p>
 </div></section>
 <section id="explicado"><div class="wrap">
 <span class="chip">O ganho</span>
@@ -227,8 +227,8 @@
 </div>
 <div class="stats">
 <div class="stat"><b>45 milhões</b><span>de documentos, apresentações e designs já foram feitos dentro do Claude, segundo a Anthropic. Muita coisa de trabalho morando numa conta só.</span></div>
-<div class="stat"><b>0 contas</b><span>para quem abre a sua página: basta o link. A chave do link é o acesso.</span></div>
-<div class="stat"><b>4 sistemas</b><span>onde a página instala como app: Windows, Mac, Linux e Android (navegador Chrome ou Edge).</span></div>
+<div class="stat"><b>0 contas</b><span>para quem abre a sua página: basta o link. A chave do link é o acesso. Para abrir de fora da empresa, a página precisa estar num servidor ligado na internet.</span></div>
+<div class="stat"><b>4 sistemas</b><span>onde a página instala como app: Windows, Mac, Linux e Android (Chrome ou Edge), com a página num endereço seguro (https).</span></div>
 </div>
 <p class="fonte">45 milhões: post de lançamento da Anthropic exibido no anúncio dos apps (nov/2026). Sistemas do app do Claude: <a href="https://support.claude.com/en/articles/18516354-install-an-artifact-as-an-app" rel="noopener" target="_blank">central de ajuda do Claude</a>, conferida em 25/11/2026.</p>
 </div></section>
@@ -236,9 +236,9 @@
 <span class="chip">Para quem</span>
 <h2>O que cada um <span class="amb">ganha</span></h2>
 <div class="grid g3">
-<div class="card"><img alt="Gerente de pequena empresa olha o celular enquanto a equipe se reúne" class="quem-img" loading="lazy" src="assets/quem-gestor.jpg"/><h3>🧑‍💼 Quem cuida de uma equipe</h3><p><strong>Ganha:</strong> a lista de tarefas da semana, o checklist de quem entra e o placar da semana num link só, que a equipe abre sem criar conta em lugar nenhum.</p><p><strong>E mais:</strong> no fim do mês você baixa tudo em planilha.</p></div>
-<div class="card"><img alt="Instrutora mostra no tablet a lista de inscrições à turma" class="quem-img" loading="lazy" src="assets/quem-professor.jpg"/><h3>👩‍🏫 Quem ensina ou organiza eventos</h3><p><strong>Ganha:</strong> folha de inscrição, lista de presença e quiz que os alunos abrem pelo link, e todo mundo vê a mesma lista na hora.</p><p><strong>E mais:</strong> cada aluno instala a página como app no celular Android.</p></div>
-<div class="card"><img alt="Técnico em casa com notebook e um mini servidor com luz âmbar" class="quem-img" loading="lazy" src="assets/quem-tecnico.jpg"/><h3>🛠️ Quem cuida da tecnologia</h3><p><strong>Ganha:</strong> um servidor pequeno, sem dependências, que você entende inteiro, roda numa VPS ou num mini PC e entrega para qualquer IA escrever as páginas.</p><p><strong>E mais:</strong> se quiser, a página consulta a IA que você ligar, na sua conta, não na de quem abre.</p></div>
+<div class="card"><img alt="Gerente de pequena empresa olha o celular enquanto a equipe se reúne" class="quem-img" loading="lazy" src="assets/quem-gestor.jpg"/><h3>🧑‍💼 Quem cuida de uma equipe</h3><p><strong>Ganha:</strong> a lista de tarefas da semana num link só, que a equipe abre sem criar conta em lugar nenhum. O checklist de quem entra ou o placar da semana, a sua IA monta a partir do mesmo modelo.</p><p><strong>E mais:</strong> no fim do mês você baixa tudo em planilha.</p></div>
+<div class="card"><img alt="Instrutora mostra no tablet a lista de inscrições à turma" class="quem-img" loading="lazy" src="assets/quem-professor.jpg"/><h3>👩‍🏫 Quem ensina ou organiza eventos</h3><p><strong>Ganha:</strong> folha de inscrição que os alunos abrem pelo link, e todo mundo vê a mesma lista na hora. Lista de presença ou quiz, a sua IA monta a partir do modelo de inscrições.</p><p><strong>E mais:</strong> cada aluno instala a página como app no celular Android.</p></div>
+<div class="card"><img alt="Técnico em casa com notebook e um mini servidor com luz âmbar" class="quem-img" loading="lazy" src="assets/quem-tecnico.jpg"/><h3>🛠️ Quem cuida da tecnologia</h3><p><strong>Ganha:</strong> um servidor pequeno, sem dependências, que você entende inteiro, roda num servidor alugado ou num mini PC e entrega para qualquer IA escrever as páginas.</p><p><strong>E mais:</strong> se quiser, a página consulta a IA que você ligar, na sua conta, não na de quem abre.</p></div>
 </div>
 </div></section>
 <section id="dia"><div class="wrap">
@@ -246,13 +246,13 @@
 <h2>Como isso muda <span class="amb">a sua semana</span></h2>
 <div class="grid g3">
 <div class="card"><h3>📋 Tarefas da segunda</h3><p><strong>Hoje:</strong> a lista vai por mensagem, cada um marca numa cópia diferente e ninguém sabe o que está pronto.</p><p><strong>Com o kit:</strong> um link, a mesma lista para todos, e quem marca aparece na hora para os outros.</p></div>
-<div class="card"><h3>📝 Inscrição do treinamento</h3><p><strong>Hoje:</strong> formulário de terceiros, planilha exportada à mão, e o aluno não vê se a turma lotou.</p><p><strong>Com o kit:</strong> a folha mostra quantos já se inscreveram, uma inscrição por pessoa, e sai em planilha quando você pedir.</p></div>
+<div class="card"><h3>📝 Inscrição do treinamento</h3><p><strong>Hoje:</strong> formulário de terceiros, planilha exportada à mão, e o aluno não vê se a turma lotou.</p><p><strong>Com o kit:</strong> a folha mostra quantos já se inscreveram, uma inscrição por nome, e sai em planilha quando você pedir.</p></div>
 <div class="card"><h3>💬 "Muda isso aqui"</h3><p><strong>Hoje:</strong> o comentário vem no grupo, se perde, e você reenvia um arquivo novo a cada ajuste.</p><p><strong>Com o kit:</strong> o comentário fica na própria página; você pede o ajuste à sua IA, publica, e o link continua o mesmo.</p></div>
 </div>
 <div class="tl-wrap" style="margin-top:28px">
 <ol class="tl">
 <li><b>08:30</b> — você pede à IA: "faça a lista de tarefas da equipe desta semana". Ela escreve a página e publica.</li>
-<li><b>08:35</b> — manda o link no grupo. Cada pessoa abre, põe o nome e pega as tarefas dela.</li>
+<li><b>08:35</b> — manda o link no grupo. Cada pessoa abre (de casa também, se o kit estiver num servidor na internet), põe o nome e pega as tarefas dela.</li>
 <li><b>11:00</b> — alguém comenta na página: "põe prazo em cada tarefa". Você pede o ajuste à IA; a versão 2 entra no mesmo link.</li>
 <li><b>18:00</b> — a barra de progresso mostra o dia. Na sexta, você baixa tudo em planilha.</li>
 </ol>
@@ -260,17 +260,18 @@
 </div></section>
 <section id="video"><div class="wrap">
 <span class="chip">Vídeo</span>
-<h2>Entenda em <span class="amb">poucos minutos</span></h2>
+<h2>Vídeo em produção</h2>
 <!-- VIDEO: entra o explicavideo do projeto quando publicado -->
+<p class="sub">O vídeo deste kit está em produção e entra aqui quando for publicado. Enquanto isso, o passo a passo está em <a href="#comecar">Como começar</a>.</p>
 </div></section>
 <section id="como"><div class="wrap">
 <span class="chip">Como funciona</span>
 <h2>Seis peças, <span class="amb">sem jargão</span></h2>
 <figure style="margin:0 0 26px;border-radius:16px;overflow:hidden;border:1px solid var(--line)"><img alt="As seis peças do Artefatos Livres" src="assets/banner-grade.jpg" style="width:100%;display:block"/></figure>
 <div class="grid g3">
-<div class="card"><h3>🔑 Link com chave</h3><p>Como a chave de uma sala: quem tem o link entra, quem não tem recebe "página privada". Quer tirar alguém? Troca a chave e manda o link novo.</p></div>
+<div class="card"><h3>🔑 Link com chave</h3><p>Como a chave de uma sala: quem tem o link entra, quem não tem recebe "página privada". Quer tirar alguém? Peça à sua IA para trocar a chave e mande o link novo.</p></div>
 <div class="card"><h3>📚 Versão nova, mesmo link</h3><p>Como um caderno com páginas numeradas: o link mostra sempre a última, e cada versão anterior continua guardada no seu número.</p></div>
-<div class="card"><h3>📲 Instalar como app</h3><p>No Chrome ou no Edge aparece "instalar". A página ganha ícone e janela própria, como qualquer programa, e abre mesmo sem internet com a última versão vista.</p></div>
+<div class="card"><h3>📲 Instalar como app</h3><p>No Chrome ou no Edge aparece "instalar" quando a página está num endereço seguro (https). Ela ganha ícone e janela própria, como qualquer programa, e abre mesmo sem internet com a última versão vista.</p></div>
 <div class="card"><h3>🗂️ Dados da equipe</h3><p>Como um quadro na parede da sala: o que um escreve, os outros veem em poucos segundos. Fica num arquivo no seu computador, não na nuvem de alguém.</p></div>
 <div class="card"><h3>💬 Comentários</h3><p>Um botão no canto de toda página. A equipe deixa o recado ali, com nome e hora, e você leva o recado à IA que quiser.</p></div>
 <div class="card"><h3>🧳 Leva tudo embora</h3><p>Um comando junta a página, as versões e os dados (em planilha e em texto) numa pasta sua. A chave de acesso não vai junto.</p></div>
@@ -284,15 +285,15 @@
 <section id="comecar"><div class="wrap">
 <span class="chip">Como começar</span>
 <h2>Você não instala nada <span class="amb">à mão</span></h2>
-<div class="step"><div class="b">1</div><div><h3>Abra o Claude Code ou o Codex numa pasta sua</h3><p>Pode ser no seu computador ou numa VPS. Se a ideia é não depender do Claude, use o Codex, o Gemini CLI ou outro agente: o pedido abaixo funciona igual.</p></div></div>
+<div class="step"><div class="b">1</div><div><h3>Abra um agente de IA no seu computador</h3><p>Agente é a IA que, além de conversar, mexe em arquivos e instala programas no seu computador, sempre pedindo licença. Os mais usados: o <a href="https://claude.com/product/claude-code" rel="noopener" target="_blank">Claude Code</a> (da Anthropic) e o <a href="https://developers.openai.com/codex" rel="noopener" target="_blank">Codex</a> (da OpenAI). Se a ideia é não depender do Claude, use o Codex ou outro: o pedido abaixo funciona igual. Abra o agente numa pasta vazia, criada para isso.</p></div></div>
 <div class="step"><div class="b">2</div><div><h3>Cole o pedido</h3><p>A IA lê o kit, olha o que você faz hoje e explica em linguagem simples o que vale a pena trazer.</p>
-<div class="pedido"><button class="copiar" type="button">Copiar</button><p id="pedido">Leia o repositório https://github.com/inematds/artefatos-livres (o README e o CONTRATO.md). Depois me pergunte quais páginas, listas ou planilhas a minha equipe usa hoje por link (inclusive artifacts do Claude) e me diga, em linguagem simples: quais dariam para virar uma página do Artefatos Livres, onde rodar (no meu computador, numa VPS ou só como página estática) e o que eu perderia em relação ao Claude. Não instale nem mude nada antes do meu sim. Com o meu sim: baixe o kit, rode os testes, crie a primeira página a partir do modelo que fizer mais sentido, publique, suba o servidor e me mande o link para eu abrir.</p></div></div></div>
+<div class="pedido"><button class="copiar" type="button">Copiar</button><p id="pedido">Leia o repositório https://github.com/inematds/artefatos-livres (o README e o CONTRATO.md). Depois me pergunte quais páginas, listas ou planilhas a minha equipe usa hoje por link (inclusive artifacts do Claude) e me diga, em linguagem simples: quais dariam para virar uma página do Artefatos Livres, onde rodar (no meu computador, num servidor alugado na internet ou só como página estática) e o que eu perderia em relação ao Claude. Não instale nem mude nada antes do meu sim. Com o meu sim: baixe o kit, rode os testes, crie a primeira página a partir do modelo que fizer mais sentido, publique, suba o servidor e me mande o link para eu abrir.</p></div></div></div>
 <div class="step"><div class="b">3</div><div><h3>Diga sim ao que fizer sentido</h3><p>Abra o link que ela mandar, ponha seu nome, mande para alguém da equipe e veja os dois mexendo na mesma lista.</p></div></div>
 <div class="grid g2" style="margin-top:10px">
 <div class="card"><h3>🌐 Quer só usar, sem instalar?</h3><p>Não existe versão online nossa: a ideia é justamente a página ficar com você. O mais perto disso é publicar só a página (sem os dados compartilhados) numa hospedagem grátis como o GitHub Pages; aí cada pessoa guarda os próprios dados no navegador.</p></div>
 <div class="card"><h3>⬇️ Onde baixar?</h3><p>Não há instalador: é uma pasta com um programa em Python. Baixe o <a href="https://github.com/inematds/artefatos-livres/archive/refs/heads/main.zip">ZIP do kit</a> ou veja o <a href="https://github.com/inematds/artefatos-livres" rel="noopener" target="_blank">repositório</a>.</p></div>
 </div>
-<div class="card" style="margin-top:16px"><h3>🧑‍💻 É técnico?</h3><p>Comandos, como pôr numa VPS com endereço seguro (HTTPS), segurança e testes estão no README.</p><p><a class="btn" href="https://github.com/inematds/artefatos-livres#instalação-técnica" rel="noopener" target="_blank">Ver a parte técnica</a></p></div>
+<div class="card" style="margin-top:16px"><h3>🧑‍💻 É técnico?</h3><p>Comandos, como pôr num servidor alugado com endereço seguro (https), segurança e testes estão no README.</p><p><a class="btn" href="https://github.com/inematds/artefatos-livres#instalação-técnica" rel="noopener" target="_blank">Ver a parte técnica</a></p></div>
 </div></section>
 <section id="base"><div class="wrap">
 <span class="chip">De onde vem</span>
@@ -301,7 +302,7 @@
 <div class="card"><h3>📄 "Instalar artifact como app" (central de ajuda do Claude)</h3><p>Beta, em todos os planos, só no Claude para Mac e Windows. Não está disponível no Linux, na web nem no celular. Artifacts feitos de modelo (Docs, Slides, Sheets) não instalam. A Anthropic não revisa os apps antes de você instalar.</p><p><a href="https://support.claude.com/en/articles/18516354-install-an-artifact-as-an-app" rel="noopener" target="_blank">Ler o artigo</a></p></div>
 <div class="card"><h3>📄 Documentação dos artifacts</h3><p>Na central de ajuda: os artifacts começam privados, quem abre entra com a conta do Claude e o uso conta no plano de cada pessoa. Na documentação do Claude Code, em "o que um artifact não é": uma página única, sem servidor por trás; "para uma ferramenta interna com servidor, publique na sua própria infraestrutura".</p><p><a href="https://support.claude.com/en/articles/17153992-what-are-artifacts-and-how-do-i-use-them" rel="noopener" target="_blank">Ler sobre artifacts</a></p></div>
 </div>
-<p class="fonte">O Artefatos Livres não é da Anthropic nem ligado a ela. Ele copia a ideia (página por link, versões, app, dados, comentários) com peças abertas da web: o app é um PWA, recurso padrão dos navegadores, e os dados ficam num banco SQLite, um arquivo comum.</p>
+<p class="fonte">O Artefatos Livres não é da Anthropic nem ligado a ela. Ele copia a ideia (página por link, versões, app, dados, comentários) com peças abertas da web: o app usa um recurso padrão dos navegadores, e os dados ficam num arquivo comum no seu servidor.</p>
 </div></section>
 <section id="prova"><div class="wrap">
 <span class="chip">A prova</span>
@@ -323,11 +324,11 @@
 <h2>Antes de <span class="amb">você perguntar</span></h2>
 <div class="grid g2">
 <div class="card"><h3>Preciso programar?</h3><p>Não. Você pede à sua IA com o texto do "Como começar". Para mudar a página, também é só pedir.</p></div>
-<div class="card"><h3>Custa alguma coisa?</h3><p>O kit é grátis e aberto. No seu computador, custo zero. Para todo mundo abrir de fora, você precisa de um servidor seu (uma VPS pequena serve).</p></div>
+<div class="card"><h3>Custa alguma coisa?</h3><p>O kit é grátis e aberto. No seu computador, custo zero, mas só quem está na mesma rede abre. Para todo mundo abrir de qualquer lugar, você precisa de um servidor ligado na internet: um computador alugado que fica ligado o tempo todo (os menores custam alguns dólares por mês) ou um mini PC seu. Para o "instalar como app" aparecer, ele precisa de um endereço com https; a sua IA configura isso.</p></div>
 <div class="card"><h3>Então eu largo o Claude?</h3><p>Não precisa. Use o Claude, o Codex ou outra IA para escrever as páginas. O que muda é onde a página e os dados moram: com você.</p></div>
 <div class="card"><h3>Serve para dado sensível?</h3><p>Quem tem o link entra e edita. Para salário, saúde ou dado de cliente, use um sistema com login por pessoa. O kit é para o "software pequeno" do dia a dia.</p></div>
-<div class="card"><h3>Funciona no celular?</h3><p>Abre em qualquer celular. Instalar como app funciona no Android pelo Chrome; no iPhone, use "Adicionar à Tela de Início" do Safari.</p></div>
-<div class="card"><h3>E se eu já tenho artifacts no Claude?</h3><p>O conteúdo do artifact é uma página comum. Peça à IA para trazê-la para o kit seguindo o contrato do repositório; os dados você exporta do Claude e importa na página.</p></div>
+<div class="card"><h3>Funciona no celular?</h3><p>Abre em qualquer celular. Instalar como app funciona no Android pelo Chrome, com a página num endereço seguro (https); no iPhone, use "Adicionar à Tela de Início" do Safari.</p></div>
+<div class="card"><h3>E se eu já tenho artifacts no Claude?</h3><p>O conteúdo do artifact é uma página comum. Peça à IA para trazê-la para o kit seguindo o contrato do repositório; os dados você exporta do Claude e pede à IA para lançá-los na página nova.</p></div>
 </div>
 <p class="sub" style="margin-top:28px">Qual página a sua equipe usaria primeiro se ela fosse sua de verdade? Venha contar e ver outros kits grátis no <a href="https://inema.club" rel="noopener" target="_blank">inema.club</a>, direto na internet.</p>
 </div></section>
