@@ -35,7 +35,7 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import parse_qs, quote, unquote, urlparse
 
-VERSAO = "1.0.0"
+VERSAO = "1.0.1"
 RAIZ_KIT = Path(__file__).resolve().parent
 NOME_OK = re.compile(r"^[a-z0-9][a-z0-9-]{0,62}$")
 COLECAO_OK = re.compile(r"^[a-zA-Z0-9_-]{1,64}$")
