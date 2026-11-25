@@ -26,8 +26,8 @@ Guia completo (landing + passo a passo): **https://inematds.github.io/artefatos-
 ## Por que existe
 
 Os Artifacts do Claude viraram um lugar de trabalho: página por link, versões, dados, comentários e, agora,
-"instalar como app". Funciona bem, mas a página, os dados e quem pode abrir ficam na conta da Anthropic, e quem abre
-precisa entrar no Claude. A própria central de ajuda da Anthropic diz: para uma ferramenta interna com backend,
+"instalar como app". Funciona bem, mas a página, os dados e quem pode abrir ficam na conta da Anthropic: sem conta, a parte com IA da página não funciona,
+e documento e planilha só abrem com login. A própria central de ajuda da Anthropic diz: para uma ferramenta interna com backend,
 publique na sua infraestrutura. É isso que este kit faz, no mesmo formato, com a fonte de verdade em arquivos seus.
 
 ## O que o kit faz × Artifacts do Claude
@@ -42,7 +42,7 @@ publique na sua infraestrutura. É isso que este kit faz, no mesmo formato, com 
 | A página chama IA | sim, na cota de quem abre | opcional: qualquer comando (`claude -p`, `codex exec -`, `ollama run …`) na conta do dono |
 | Conectores (Gmail, Slack, BigQuery…) | sim | **não**: a página só vê o próprio servidor |
 | Modelos Docs/Slides/Sheets prontos | sim | não; há 3 modelos simples (tarefas, inscrições, em branco) |
-| Quem abre precisa de conta | sim, no Claude | não; só o link |
+| Quem abre precisa de conta | a maioria abre sem login; docs/planilhas e a parte com IA ou conectores pedem conta | não; só o link (a IA, se ligada, roda na conta do dono) |
 | Sair levando tudo | exporta o conteúdo | `exportar`: HTML + dados em JSON e CSV, sem a chave |
 
 ## O processo, do início ao fim
@@ -82,8 +82,9 @@ Requisito: Python 3.9+. Nada para instalar.
 ## Testes
 
 ```bash
-python3 -m unittest discover -s tests -v       # 18 testes: link, chave, versões, app, dados, comentários, IA, exportar
+python3 -m unittest discover -s tests -v       # 20 testes: link, chave, versões, app, dados, comentários, IA, exportar
 node tests/navegador.mjs "<link com chave>" .   # Chromium real: duas pessoas na mesma lista
+node tests/instalavel.mjs "<link com chave>"      # Chromium diz se a página privada é instalável e abre sem internet
 ```
 
 ## Arquivos

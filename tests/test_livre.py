@@ -83,6 +83,18 @@ class TestKit(unittest.TestCase):
         st, _, _ = pedir(self.s.base + "/api/tarefas/eu", cab={"Cookie": par})
         self.assertEqual(st, 200)
 
+    def test_chave_com_acento_nao_derruba(self):
+        st, _, _ = pedir(self.s.base + "/tarefas/?k=%C3%A7%C3%A3o")
+        self.assertEqual(st, 403)
+
+    def test_manifest_com_credenciais_e_icone_publico(self):
+        _, corpo, _ = pedir(self.s.base + f"/tarefas/?k={self.chave}")
+        self.assertIn(b'crossorigin="use-credentials"', corpo)  # o navegador manda o cookie ao buscar o manifest
+        st, _, _ = pedir(self.s.base + "/tarefas/icone.svg")
+        self.assertEqual(st, 200)
+        st, _, _ = pedir(self.s.base + "/tarefas/manifest.webmanifest")
+        self.assertEqual(st, 403)
+
     def test_indice_lista_so_publicas(self):
         st, corpo, _ = pedir(self.s.base + "/")
         self.assertEqual(st, 200)

@@ -75,6 +75,11 @@ class Area:
             json.dumps(conf, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
+def _igual(a: str, b: str) -> bool:
+    """Comparação em tempo constante que aceita qualquer texto (compare_digest recusa str não ASCII)."""
+    return secrets.compare_digest(a.encode("utf-8"), b.encode("utf-8"))
+
+
 def checar_nome(nome: str) -> str:
     if not NOME_OK.match(nome or ""):
         raise SystemExit("nome inválido: use minúsculas, números e hífen (ex.: tarefas-da-semana)")
@@ -132,7 +137,7 @@ def _injetar(html_txt: str) -> str:
     """Põe manifest, ícone e livre.js no <head> se a página ainda não tiver."""
     extra = []
     if "manifest.webmanifest" not in html_txt:
-        extra.append('<link rel="manifest" href="manifest.webmanifest">')
+        extra.append('<link rel="manifest" href="manifest.webmanifest" crossorigin="use-credentials">')
     if "icone.svg" not in html_txt:
         extra.append('<link rel="icon" href="icone.svg">')
     if "livre.js" not in html_txt:
@@ -404,12 +409,12 @@ def fazer_handler(app: App):
                 return True, None
             chave = conf["chave"]
             dada = (qs.get("k") or [None])[0]
-            if dada and secrets.compare_digest(dada, chave):
+            if dada and _igual(dada, chave):
                 return True, f"k_{nome}={chave}; Path=/; HttpOnly; SameSite=Lax; Max-Age=31536000"
-            if secrets.compare_digest(self._cookies().get(f"k_{nome}", ""), chave):
+            if _igual(self._cookies().get(f"k_{nome}", ""), chave):
                 return True, None
             api_chave = self.headers.get("X-Livre-Chave") or ""
-            if api_chave and secrets.compare_digest(api_chave, chave):
+            if api_chave and _igual(api_chave, chave):
                 return True, None
             return False, None
 
@@ -468,7 +473,7 @@ def fazer_handler(app: App):
             ok, cookie = self._autorizado(nome, qs)
             if ok is None or not (app.area.site / nome).exists():
                 return self._erro(404, "não encontrado")
-            if not ok:
+            if not ok and not (len(partes) >= 2 and partes[-1] == "icone.svg"):  # ícone é público: o navegador o busca sem cookie
                 return self._erro(403, "página privada: abra pelo link com a chave")
             if len(partes) == 1 and not barra:
                 self.send_response(301)

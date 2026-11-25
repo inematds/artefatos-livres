@@ -26,8 +26,8 @@ Guía completa (landing + paso a paso): **https://inematds.github.io/artefatos-l
 ## Por qué existe
 
 Los Artifacts de Claude se convirtieron en un lugar de trabajo: página por enlace, versiones, datos, comentarios y, ahora,
-"instalar como app". Funciona bien, pero la página, los datos y quién puede abrirla quedan en la cuenta de Anthropic, y quien abre
-necesita entrar en Claude. El propio centro de ayuda de Anthropic dice: para una herramienta interna con backend,
+"instalar como app". Funciona bien, pero la página, los datos y quién puede abrirla quedan en la cuenta de Anthropic: sin cuenta, la parte con IA de la página no funciona,
+y los documentos y hojas solo se abren iniciando sesión. El propio centro de ayuda de Anthropic dice: para una herramienta interna con backend,
 publícala en tu infraestructura. Eso es lo que hace este kit, en el mismo formato, con la fuente de verdad en archivos tuyos.
 
 ## Qué hace el kit × Artifacts de Claude
@@ -42,7 +42,7 @@ publícala en tu infraestructura. Eso es lo que hace este kit, en el mismo forma
 | La página llama a una IA | sí, con la cuota de quien abre | opcional: cualquier comando (`claude -p`, `codex exec -`, `ollama run …`) en la cuenta del dueño |
 | Conectores (Gmail, Slack, BigQuery…) | sí | **no**: la página solo ve su propio servidor |
 | Modelos Docs/Slides/Sheets listos | sí | no; hay 3 modelos simples (tareas, inscripciones, en blanco) |
-| Quien abre necesita cuenta | sí, en Claude | no; solo el enlace |
+| Quien abre necesita cuenta | la mayoría se abre sin iniciar sesión; docs/hojas y la parte con IA o conectores piden cuenta | no; solo el enlace (la IA, si está activada, corre en la cuenta del dueño) |
 | Irse llevándose todo | exporta el contenido | `exportar`: HTML + datos en JSON y CSV, sin la clave |
 
 ## El proceso, de principio a fin
