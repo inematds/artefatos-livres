@@ -1,10 +1,27 @@
-# artefatos-livres
+# Artefatos Livres
 
-**Suas páginas por link, sem depender do Claude.** Página que a equipe abre por um link, versão nova no mesmo
-endereço, instalar como app, dados compartilhados e comentários, tudo num servidor seu, em Python puro.
-Qualquer IA escreve a página (Claude, Codex, Gemini, um modelo local) ou você mesmo.
+[![Artefatos Livres: suas páginas por link, sem depender do Claude](guia/assets/banner.jpg)](https://inematds.github.io/artefatos-livres/guia/)
 
-[English](README.en.md) · [Español](README.es.md) · Guia: https://inematds.github.io/artefatos-livres/guia/
+**🇧🇷 [Português](README.md) · 🇺🇸 [English](README.en.md) · 🇪🇸 [Español](README.es.md)**
+
+## O que é
+
+Você quer a praticidade de mandar um link e todo mundo usar a mesma página, sem entregar a sua equipe e os seus dados a uma única empresa. O Artefatos Livres é um kit gratuito que faz, num computador ou servidor seu, o que os Artifacts do Claude fazem: página aberta por link (privada por padrão), versão nova no mesmo endereço, instalar como aplicativo, lista e cadastro compartilhados e comentários. Qualquer IA escreve a página (Claude, Codex, Gemini ou um modelo no seu PC), ou você mesmo. Para usar, basta um computador com Python e pedir à sua IA que instale.
+
+## 📖 Guia de uso
+
+Guia completo (landing + passo a passo): **https://inematds.github.io/artefatos-livres/guia/**
+
+## Como começar: cole isto na sua IA (Claude Code, Codex, Gemini CLI…)
+
+> Leia o repositório https://github.com/inematds/artefatos-livres (o README e o CONTRATO.md). Depois me pergunte quais páginas, listas ou planilhas a minha equipe usa hoje por link (inclusive artifacts do Claude) e me diga, em linguagem simples: quais dariam para virar uma página do Artefatos Livres, onde rodar (no meu computador, numa VPS ou só como página estática) e o que eu perderia em relação ao Claude. Não instale nem mude nada antes do meu sim. Com o meu sim: baixe o kit, rode os testes, crie a primeira página a partir do modelo que fizer mais sentido, publique, suba o servidor e me mande o link para eu abrir.
+
+**Usar sem instalar?** Não há versão online: a ideia é a página ficar com você. O mais perto é publicar só a página (sem dados compartilhados) numa hospedagem estática grátis.
+**Onde baixar?** Não há instalador: [ZIP do kit](https://github.com/inematds/artefatos-livres/archive/refs/heads/main.zip) ou `git clone`.
+
+---
+
+# Instalação técnica
 
 ## Por que existe
 

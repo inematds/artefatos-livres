@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Artefatos Livres: tus páginas por enlace, sin depender de Claude</title>
+<meta content="Kit gratuito y abierto: página por enlace, versiones en el mismo enlace, instalar como app, datos y comentarios del equipo en un servidor tuyo, con cualquier IA." name="description"/>
+<meta content="Artefatos Livres: la página de tu equipo en un enlace tuyo" property="og:title"/>
+<meta content="Lo que hacen los Artifacts de Claude, en un servidor tuyo y con cualquier IA. Gratis." property="og:description"/>
+<meta content="https://inematds.github.io/artefatos-livres/guia/assets/banner.jpg" property="og:image"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<style>
+  :root{
+    --bg:#0c0c10; --bg2:#14141b; --card:#16161e; --line:#272730;
+    --txt:#e9e9ee; --mut:#9a9aa6; --amb:#FACC15; --amb2:#f0c070; --sky:#38bdf8; --pro:#cbd5e1;
+    --fill:#FACC15; --tint:rgba(250,204,21,.12); --ok:#7CE0C6; --bad:#F0918A;
+    color-scheme:dark;
+  }
+  body.light{
+    --bg:#f6f7f9; --bg2:#eceef2; --card:#ffffff; --line:#e1e3ea;
+    --txt:#1a1a22; --mut:#5b5b68; --amb:#a16207; --amb2:#a16207; --sky:#0369a1; --pro:#b45309;
+    --fill:#FACC15; --tint:#FEF9C3; --ok:#0E6B55; --bad:#A83426;
+    color-scheme:light;
+  }
+  body.light .hero .glow{opacity:.5}
+  body.light pre{background:#0e0e14;color:#d6d6e0}
+  body.light pre .c{color:#8a8a98}
+  body.light pre .k{color:#f0c070}
+  body.light nav{background:rgba(246,247,249,.85)}
+  body.light .amb{color:var(--txt);background:linear-gradient(transparent 55%,#FACC15 55%)}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--txt);font:16px/1.65 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:Sora,sans-serif;line-height:1.15;margin:0}
+  a{color:var(--amb);text-decoration:none}
+  body.light main a:not(.btn),body.light footer a{color:#854d0e;text-decoration:underline;text-decoration-color:#FACC15;text-decoration-thickness:3px}
+  code,pre{font-family:"JetBrains Mono",monospace}
+  p code,li code,td code{font-size:.9em;background:var(--bg2);border:1px solid var(--line);border-radius:6px;padding:.05em .35em}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 22px}
+  .mut{color:var(--mut)} .amb{color:var(--amb)}
+  .chip{display:inline-block;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amb);font-weight:600;font-family:Sora}
+  nav{position:sticky;top:0;z-index:30;backdrop-filter:blur(12px);background:rgba(12,12,16,.78);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;gap:22px;height:60px}
+  nav .brand{display:flex;align-items:center;gap:8px;font-family:Sora;font-weight:800;letter-spacing:-.02em;color:var(--amb);white-space:nowrap}
+  nav .brand .emoji{font-size:1.25rem}
+  nav .sep{color:var(--mut);opacity:.45}
+  nav .inema{color:var(--sky);font-weight:600;font-size:.88rem;font-family:Sora}
+  nav .inema:hover{filter:brightness(1.15)}
+  nav .pro{color:var(--pro);font-weight:600;font-size:.88rem;font-family:Sora}
+  nav .pro:hover{filter:brightness(1.15)}
+  nav .clubpro{display:inline-flex;align-items:center;gap:6px}
+  nav .links{margin-left:auto;display:flex;align-items:center;gap:20px;font-size:.92rem}
+  nav .links a.sec{color:var(--mut)} nav .links a.sec:hover{color:var(--txt)}
+  .lang{display:inline-flex;gap:2px;font-family:Sora;font-size:.78rem}
+  .lang a{color:var(--mut);padding:.2em .45em;border-radius:6px} .lang a.on{color:var(--amb);background:var(--tint)}
+  .tgl{background:var(--bg2);border:1px solid var(--line);color:var(--txt);width:38px;height:38px;border-radius:10px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;font-size:1.05rem}
+  .tgl:hover{border-color:var(--amb)}
+  .btn{display:inline-block;background:var(--fill);color:#1a1206;font-weight:600;padding:.6em 1.05em;border-radius:10px;font-family:Sora}
+  .btn.ghost{background:transparent;color:var(--txt);border:1px solid var(--line)}
+  nav .links a.sec{white-space:nowrap}
+  @media(max-width:1360px){nav .links a.opt{display:none}}
+  @media(max-width:860px){nav .links a.sec{display:none}}
+  @media(max-width:520px){nav .wrap{gap:8px;padding:8px 14px;height:auto;flex-wrap:wrap} nav .links{gap:8px;margin-left:0;width:100%;justify-content:space-between} nav .btn{padding:.45em .7em;font-size:.82rem} .tgl{width:34px;height:34px}}
+  .hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+  .hero .glow{position:absolute;inset:-40% -20% auto auto;width:70%;height:600px;background:radial-gradient(closest-side,rgba(250,204,21,.18),transparent 70%);pointer-events:none}
+  .hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;padding:74px 22px}
+  .hero h1{font-size:clamp(2.1rem,4.6vw,3.3rem);font-weight:800;letter-spacing:-.025em}
+  .hero p.lead{font-size:1.15rem;color:var(--mut);margin:1.1em 0 1.6em;max-width:44ch}
+  .hero .cta{display:flex;gap:12px;flex-wrap:wrap}
+  .oficial{display:inline-flex;align-items:center;gap:12px;margin-top:18px;padding:10px 14px;border:1px solid var(--line);border-radius:12px;background:var(--bg2);color:var(--txt);font-size:.92rem;max-width:100%}
+  .oficial img{width:40px;height:40px;border-radius:8px;background:#fff;flex:none}
+  .oficial small{display:block;color:var(--mut,#9a9aa6);font-size:.8rem}
+  .quem-img{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:12px;margin:0 0 14px;display:block;border:1px solid var(--line)}
+  .hero figure{margin:0;border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 80px -30px #000}
+  .hero figure img{width:100%;height:auto;display:block}
+  .resumo{padding:38px 0 34px;border-bottom:1px solid var(--line)}
+  .resumo p{font-size:1.12rem;line-height:1.7;max-width:74ch;margin:.55em 0 0}
+  @media(max-width:780px){.hero .wrap{grid-template-columns:1fr;padding:48px 22px}}
+  section{padding:62px 0;border-bottom:1px solid var(--line)}
+  section h2{font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:800;letter-spacing:-.02em}
+  section .sub{color:var(--mut);margin:.6em 0 2em;max-width:66ch}
+  .grid{display:grid;gap:16px}
+  .g3{grid-template-columns:repeat(3,1fr)} .g4{grid-template-columns:repeat(4,1fr)} .g2{grid-template-columns:repeat(2,1fr)}
+  @media(max-width:820px){.g3,.g4{grid-template-columns:1fr 1fr}}
+  @media(max-width:540px){.g2,.g3,.g4{grid-template-columns:1fr}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;min-width:0}
+  .card h3{font-size:1.05rem;margin-bottom:.4em}
+  .card p{color:var(--mut);font-size:.95rem;margin:0}
+  .card p+p{margin-top:.6em}
+  .flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:10px}
+  .flow span{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:.45em .9em;font-size:.85rem;font-family:Sora;font-weight:600}
+  .flow .arr{color:var(--amb);border:none;background:none;padding:0 .1em}
+  pre{background:#0a0a0e;border:1px solid var(--line);border-radius:12px;padding:16px 18px;overflow:auto;font-size:.86rem;line-height:1.6;color:#d6d6e0;margin:.4em 0 0}
+  pre .c{color:#7d7d8a} pre .k{color:var(--amb2)} pre .s{color:#9ece6a}
+  .step{display:grid;grid-template-columns:46px minmax(0,1fr);gap:16px;margin-bottom:28px}
+  .step>div{min-width:0}
+  .step .b{width:46px;height:46px;border-radius:12px;background:var(--fill);color:#1a1206;font-family:Sora;font-weight:800;font-size:1.25rem;display:flex;align-items:center;justify-content:center}
+  .step h3{font-size:1.12rem;margin-bottom:.3em}
+  .step p{color:var(--mut);margin:.2em 0 .5em}
+  .quem{display:inline-block;font-family:Sora;font-size:.75rem;letter-spacing:.06em;color:var(--txt);background:var(--tint);border:1px solid var(--line);border-radius:999px;padding:.1em .7em;margin-left:.5em;vertical-align:middle;font-weight:600}
+  footer{padding:46px 0;text-align:center;color:var(--mut);font-size:.9rem}
+  .pill{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:.3em .8em;font-size:.78rem;color:var(--mut);margin:4px}
+  /* números */
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:26px}
+  @media(max-width:720px){.stats{grid-template-columns:1fr}}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+  .stat b{display:block;font:800 clamp(1.9rem,4vw,2.6rem)/1.05 Sora,sans-serif;letter-spacing:-.02em;color:var(--amb)}
+  body.light .stat b{color:var(--txt)}
+  .stat span{display:block;color:var(--mut);font-size:.93rem;margin-top:.5em}
+  .fonte{font-size:.86rem;color:var(--mut);margin-top:14px;max-width:80ch}
+  /* trocas */
+  .troca{display:grid;grid-template-columns:64px minmax(0,1fr);gap:18px;padding:26px 0;border-top:1px solid var(--line)}
+  .troca:first-of-type{border-top:none}
+  .troca .n{width:64px;height:64px;border-radius:14px;border:1px solid var(--line);background:var(--card);display:flex;align-items:center;justify-content:center;font:800 1.6rem Sora,sans-serif;color:var(--amb)}
+  body.light .troca .n{color:var(--txt);background:var(--fill);border-color:var(--fill)}
+  .troca h3{font-size:1.3rem;margin-bottom:.35em}
+  .troca p{margin:.35em 0;max-width:72ch}
+  .troca .ex{margin-top:.8em;background:var(--card);border:1px solid var(--line);border-left:3px solid var(--fill);border-radius:10px;padding:12px 16px;font-size:.95rem;color:var(--mut);max-width:76ch}
+  .troca .ex b{color:var(--txt)}
+  @media(max-width:540px){.troca{grid-template-columns:1fr}}
+  /* três finais */
+  .vs{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px;max-width:900px}
+  @media(max-width:720px){.vs{grid-template-columns:1fr}}
+  .vs div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;font-size:.93rem}
+  .vs strong{display:block;font-family:Sora;margin-bottom:.25em}
+  .vs .r{display:block;margin-top:.5em;font-weight:600}
+  .vs .r.bad{color:var(--bad)} .vs .r.ok{color:var(--ok)}
+  .card ul{margin:8px 0 0;padding-left:20px}.card li{margin:5px 0}
+  /* prova */
+  .prova{background:var(--card);border:1px solid var(--amb);border-radius:16px;padding:26px 26px 22px;margin-top:6px}
+  body.light .prova{border-color:#EAB308}
+  .tl{list-style:none;margin:0;padding:0;counter-reset:t}
+  .tl li{position:relative;padding:0 0 18px 48px;counter-increment:t}
+  .tl li::before{content:counter(t);position:absolute;left:0;top:0;width:32px;height:32px;border-radius:10px;background:var(--fill);color:#1a1206;font:800 .95rem/32px Sora,sans-serif;text-align:center}
+  .tl li::after{content:"";position:absolute;left:15px;top:36px;bottom:4px;width:2px;background:var(--line)}
+  .tl li:last-child::after{display:none}
+  .tl b{font-family:Sora}
+  blockquote{margin:6px 0 0;padding:14px 18px;border-left:3px solid var(--fill);background:var(--bg2);border-radius:0 10px 10px 0;font-size:1.02rem}
+  .prova .rod{font-size:.86rem;color:var(--mut);margin-top:14px}
+  /* parte técnica */
+  .techhead{background:var(--bg2);border-top:3px solid var(--fill);padding:58px 0 8px}
+  .techhead h2{font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:800;letter-spacing:-.02em;margin:.3em 0 0}
+  .techhead .sub{color:var(--mut);margin:.6em 0 1.2em;max-width:66ch}
+  .techzone{background:var(--bg2)}
+  .techzone .card{background:var(--card)}
+  .tbl{width:100%;border-collapse:collapse;font-size:.93rem}
+  .tbl th,.tbl td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  .tbl th{font-family:Sora;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;color:var(--mut)}
+  .tblwrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--card)}
+  @media(max-width:600px){.tbl thead{display:none} .tbl tr{display:block;border-bottom:1px solid var(--line);padding:6px 0} .tbl tr:last-child{border-bottom:none} .tbl td{display:block;border:none;padding:4px 14px}}
+</style>
+<style>
+  .hero .wrap.hero2{grid-template-columns:1.05fr .95fr;grid-template-areas:"top f1" "bot f2";column-gap:40px;row-gap:28px;align-items:center}
+  .hero2 .h-top{grid-area:top}.hero2 .h-bot{grid-area:bot}.hero2 .f1{grid-area:f1}.hero2 .f2{grid-area:f2}
+  .hero2 .h-bot p.lead{margin-top:0}
+  @media(max-width:780px){.hero .wrap.hero2{grid-template-columns:1fr;grid-template-areas:"top" "f1" "bot" "f2"}}
+  .rel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;font-size:.93rem}
+  .rel h4{font-family:Sora;font-size:.95rem;margin:.9em 0 .3em}
+  .rel h4:first-child{margin-top:0}
+  .rel p{margin:.2em 0;color:var(--mut)}
+  .rel .sim{display:inline-block;font:700 .7rem Sora;letter-spacing:.1em;color:#1a1206;background:var(--fill);border-radius:6px;padding:.1em .5em;margin-left:.4em;vertical-align:middle}
+</style>
+<style>
+  .kits{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px}
+  @media(max-width:820px){.kits{grid-template-columns:1fr 1fr}}
+  @media(max-width:520px){.kits{grid-template-columns:1fr}}
+  .kits a,.kits div{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;color:var(--txt);font-size:.92rem}
+  .kits b{display:block;font-family:Sora;margin-bottom:.2em}
+  .kits .aqui{border-color:var(--amb)}
+</style>
+<style>
+  .pedido{position:relative;background:var(--card);border:1px solid var(--amb);border-radius:12px;padding:16px 18px 16px;margin-top:10px}
+  .pedido p{margin:0;color:var(--txt);font-size:.95rem;padding-right:84px}
+  .copiar{position:absolute;top:10px;right:10px;background:var(--fill);color:#1a1206;border:0;border-radius:8px;padding:.35em .8em;font:600 .82rem Sora;cursor:pointer}
+  @media(max-width:520px){.pedido p{padding-right:0;padding-top:30px}}
+</style>
+<link href="https://inematds.github.io/artefatos-livres/guia/" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/artefatos-livres/guia/en/" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/artefatos-livres/guia/es/" hreflang="es" rel="alternate"/></head>
+<body>
+<nav><div class="wrap">
+<a class="brand" href="#top"><span class="emoji">🔓</span> Artefatos Livres</a>
+<span class="sep">|</span>
+<span class="clubpro">
+<a class="inema" href="https://inema.club" rel="noopener" target="_blank">INEMA.CLUB</a>
+<span class="sep">-</span>
+<a class="pro" href="https://inema.pro" rel="noopener" target="_blank">PRO</a>
+</span>
+<div class="links">
+<a class="sec" href="#explicado">La ventaja</a>
+<a class="sec" href="#quem">Para quién</a>
+<a class="sec opt" href="#dia">En tu día</a>
+<a class="sec opt" href="#como">Cómo funciona</a>
+<a class="sec" href="#comecar">Cómo empezar</a>
+<a class="sec opt" href="#base">Base</a>
+<a class="sec" href="#prova">La prueba</a>
+<span class="lang"><a href="../">PT</a><a href="../en/">EN</a><a class="on" href="./">ES</a></span>
+<button aria-label="Cambiar tema" class="tgl" id="themeToggle" title="Cambiar tema">🌙</button>
+<a class="btn" href="https://github.com/inematds/artefatos-livres" rel="noopener" target="_blank">GitHub</a>
+</div>
+</div></nav>
+<header class="hero" id="top">
+<div class="glow"></div>
+<div class="wrap hero2">
+<div class="h-top"><span class="chip">Kit gratuito · código abierto · funciona con cualquier IA</span>
+<h1>La página que tu equipo usa todos los días, en un enlace tuyo. <span class="amb">Artefatos Livres</span>: sin depender de Claude</h1></div>
+<figure class="f1"><img alt="Una página web saliendo de una nube cerrada y yendo a un pequeño servidor en el escritorio" src="../assets/hero.jpg"/></figure>
+<div class="h-bot"><p class="lead">Le pides a una IA una lista de tareas, una hoja de inscripción o un panel, y le mandas el enlace al equipo. Hoy eso vive en la cuenta de otra empresa, y quien lo abre necesita tener cuenta allí. Con Artefatos Livres la misma página queda en una dirección tuya: se abre por enlace, recibe una versión nueva sin cambiar el enlace, se instala como aplicación y guarda los datos del equipo contigo.</p>
+<div class="cta">
+<a class="btn" href="#explicado">Qué ganas</a>
+<a class="btn ghost" href="#comecar">Cómo empezar</a>
+</div></div>
+<figure class="f2"><img alt="Artefatos Livres: página por enlace, versiones y app, sin depender de Claude" src="../assets/banner-es.jpg"/></figure>
+</div>
+</header>
+<main>
+<section class="resumo" id="resumo"><div class="wrap">
+<span class="chip">En una frase</span>
+<p><strong>Quieres la practicidad de mandar un enlace y que todos usen la misma página, sin entregar a tu equipo y tus datos a una sola empresa.</strong> Artefatos Livres es un kit gratuito que hace, en un computador o servidor tuyo, lo que hacen los Artifacts de Claude: página abierta por enlace (privada por defecto), versión nueva en la misma dirección, instalar como aplicación, lista y registro compartidos y comentarios. Cualquier IA escribe la página (Claude, Codex, Gemini o un modelo en tu PC), o tú mismo. Para usarlo, basta un computador con Python, que ya viene en Mac y Linux, y pedirle a tu IA que lo instale.</p>
+</div></section>
+<section id="explicado"><div class="wrap">
+<span class="chip">La ventaja</span>
+<h2>De la página atrapada en una cuenta <span class="amb">a la página que es tuya</span></h2>
+<div class="grid g2">
+<div class="card"><h3>😟 Hoy</h3><p>La lista del equipo, la capacitación, el panel de la semana: todo vive dentro de Claude. Quien lo abre necesita entrar con una cuenta de Claude. Si cambia el plan, la regla o el precio, cambias tú también.</p><p>Y el nuevo "instalar como app" es beta: solo en Mac y Windows, nada de Linux, web o celular.</p></div>
+<div class="card"><h3>😌 Con Artefatos Livres</h3><p>La misma página queda en una dirección tuya. Quien la abre solo necesita el enlace. La versión nueva entra en el mismo enlace y la anterior queda guardada. Los datos quedan en un archivo en tu máquina y salen cuando quieras, en hoja de cálculo.</p><p>Y la IA que escribe la página es la que tú elijas.</p></div>
+</div>
+<div class="stats">
+<div class="stat"><b>45 millones</b><span>de documentos, presentaciones y diseños ya se han hecho dentro de Claude, según Anthropic. Mucho trabajo viviendo en una sola cuenta.</span></div>
+<div class="stat"><b>0 cuentas</b><span>para quien abre tu página: basta el enlace. La clave del enlace es el acceso.</span></div>
+<div class="stat"><b>4 sistemas</b><span>donde la página se instala como app: Windows, Mac, Linux y Android (navegador Chrome o Edge).</span></div>
+</div>
+<p class="fonte">45 millones: publicación de lanzamiento de Anthropic mostrada en el anuncio de las apps (nov/2026). Sistemas de la app de Claude: <a href="https://support.claude.com/en/articles/18516354-install-an-artifact-as-an-app" rel="noopener" target="_blank">centro de ayuda de Claude</a>, consultado el 25/11/2026.</p>
+</div></section>
+<section id="quem"><div class="wrap">
+<span class="chip">Para quién</span>
+<h2>Lo que gana <span class="amb">cada uno</span></h2>
+<div class="grid g3">
+<div class="card"><img alt="Gerente de una pequeña empresa mira el celular mientras el equipo se reúne" class="quem-img" loading="lazy" src="../assets/quem-gestor.jpg"/><h3>🧑‍💼 Quien dirige un equipo</h3><p><strong>Ganas:</strong> la lista de tareas de la semana, el checklist de quien ingresa y el marcador de la semana en un solo enlace, que el equipo abre sin crear cuenta en ningún lado.</p><p><strong>Y además:</strong> a fin de mes bajas todo en hoja de cálculo.</p></div>
+<div class="card"><img alt="Instructora muestra en la tableta la lista de inscripciones a la clase" class="quem-img" loading="lazy" src="../assets/quem-professor.jpg"/><h3>👩‍🏫 Quien enseña u organiza eventos</h3><p><strong>Ganas:</strong> hoja de inscripción, lista de asistencia y quiz que los alumnos abren por el enlace, y todos ven la misma lista al instante.</p><p><strong>Y además:</strong> cada alumno instala la página como app en su celular Android.</p></div>
+<div class="card"><img alt="Técnico en casa con notebook y un mini servidor con luz ámbar" class="quem-img" loading="lazy" src="../assets/quem-tecnico.jpg"/><h3>🛠️ Quien cuida la tecnología</h3><p><strong>Ganas:</strong> un servidor pequeño, sin dependencias, que entiendes completo, corre en una VPS o en un mini PC y deja que cualquier IA escriba las páginas.</p><p><strong>Y además:</strong> si quieres, la página consulta a la IA que conectes, en tu cuenta, no en la de quien abre.</p></div>
+</div>
+</div></section>
+<section id="dia"><div class="wrap">
+<span class="chip">En tu día</span>
+<h2>Cómo cambia esto <span class="amb">tu semana</span></h2>
+<div class="grid g3">
+<div class="card"><h3>📋 Tareas del lunes</h3><p><strong>Hoy:</strong> la lista va por mensaje, cada uno marca en una copia distinta y nadie sabe qué está listo.</p><p><strong>Con el kit:</strong> un enlace, la misma lista para todos, y quien marca aparece al instante para los demás.</p></div>
+<div class="card"><h3>📝 Inscripción a la capacitación</h3><p><strong>Hoy:</strong> formulario de terceros, hoja exportada a mano, y el alumno no ve si el grupo se llenó.</p><p><strong>Con el kit:</strong> la hoja muestra cuántos ya se inscribieron, una inscripción por persona, y sale en hoja de cálculo cuando lo pidas.</p></div>
+<div class="card"><h3>💬 "Cambia esto de aquí"</h3><p><strong>Hoy:</strong> el comentario llega al grupo, se pierde, y reenvías un archivo nuevo en cada ajuste.</p><p><strong>Con el kit:</strong> el comentario queda en la propia página; le pides el ajuste a tu IA, publicas, y el enlace sigue siendo el mismo.</p></div>
+</div>
+<div class="tl-wrap" style="margin-top:28px">
+<ol class="tl">
+<li><b>08:30</b> — le pides a la IA: "haz la lista de tareas del equipo de esta semana". Ella escribe la página y la publica.</li>
+<li><b>08:35</b> — mandas el enlace al grupo. Cada persona lo abre, pone su nombre y toma sus tareas.</li>
+<li><b>11:00</b> — alguien comenta en la página: "pon fecha límite en cada tarea". Le pides el ajuste a la IA; la versión 2 entra en el mismo enlace.</li>
+<li><b>18:00</b> — la barra de progreso muestra el día. El viernes, bajas todo en hoja de cálculo.</li>
+</ol>
+</div>
+</div></section>
+<section id="video"><div class="wrap">
+<span class="chip">Video</span>
+<h2>Entiéndelo en <span class="amb">pocos minutos</span></h2>
+<!-- VIDEO: entra o explicavideo do projeto quando publicado -->
+</div></section>
+<section id="como"><div class="wrap">
+<span class="chip">Cómo funciona</span>
+<h2>Seis piezas, <span class="amb">sin jerga</span></h2>
+<figure style="margin:0 0 26px;border-radius:16px;overflow:hidden;border:1px solid var(--line)"><img alt="Las seis piezas de Artefatos Livres" src="../assets/banner-grade-es.jpg" style="width:100%;display:block"/></figure>
+<div class="grid g3">
+<div class="card"><h3>🔑 Enlace con clave</h3><p>Como la llave de una sala: quien tiene el enlace entra, quien no lo tiene recibe "página privada". ¿Quieres sacar a alguien? Cambias la clave y mandas el enlace nuevo.</p></div>
+<div class="card"><h3>📚 Versión nueva, mismo enlace</h3><p>Como un cuaderno con páginas numeradas: el enlace muestra siempre la última, y cada versión anterior sigue guardada con su número.</p></div>
+<div class="card"><h3>📲 Instalar como app</h3><p>En Chrome o Edge aparece "instalar". La página gana ícono y ventana propia, como cualquier programa, y abre incluso sin internet con la última versión vista.</p></div>
+<div class="card"><h3>🗂️ Datos del equipo</h3><p>Como un pizarrón en la pared de la sala: lo que uno escribe, los demás lo ven en pocos segundos. Queda en un archivo en tu computador, no en la nube de alguien.</p></div>
+<div class="card"><h3>💬 Comentarios</h3><p>Un botón en la esquina de toda página. El equipo deja el mensaje ahí, con nombre y hora, y tú llevas el mensaje a la IA que quieras.</p></div>
+<div class="card"><h3>🧳 Te lo llevas todo</h3><p>Un comando junta la página, las versiones y los datos (en hoja de cálculo y en texto) en una carpeta tuya. La clave de acceso no va incluida.</p></div>
+</div>
+<div class="card" style="margin-top:16px"><h3>🤖 ¿Y la IA dentro de la página?</h3><p>Opcional y desactivada al inicio. Si la activas, la página puede hacerle preguntas a la IA que <strong>tú</strong> elijas (Claude, Codex o un modelo en tu PC), en tu cuenta, con límite de preguntas por persona.</p></div>
+<div class="grid g2" style="margin-top:16px">
+<div class="card"><h3>✅ Lo que hace el kit</h3><ul><li>página por enlace, privada por defecto</li><li>versiones en el mismo enlace</li><li>instalar como app (Windows, Mac, Linux, Android)</li><li>lista y registro compartidos, comentarios</li><li>exportar todo en hoja de cálculo</li></ul></div>
+<div class="card"><h3>🚫 Lo que no promete</h3><ul><li>conectarse a Gmail, Slack o a la base de datos de la empresa (los "conectores" de Claude)</li><li>mencionar a la IA en un comentario y que ella corrija sola</li><li>inicio de sesión por persona y roles (el jefe ve todo, el alumno ve solo lo suyo)</li><li>plantillas listas de documento, diapositivas y hoja de cálculo</li></ul></div>
+</div>
+</div></section>
+<section id="comecar"><div class="wrap">
+<span class="chip">Cómo empezar</span>
+<h2>No instalas nada <span class="amb">a mano</span></h2>
+<div class="step"><div class="b">1</div><div><h3>Abre Claude Code o Codex en una carpeta tuya</h3><p>Puede ser en tu computador o en una VPS. Si la idea es no depender de Claude, usa Codex, Gemini CLI u otro agente: el pedido de abajo funciona igual.</p></div></div>
+<div class="step"><div class="b">2</div><div><h3>Pega el pedido</h3><p>La IA lee el kit, mira lo que haces hoy y explica en lenguaje simple qué vale la pena traer.</p>
+<div class="pedido"><button class="copiar" type="button">Copiar</button><p id="pedido">Lee el repositorio https://github.com/inematds/artefatos-livres (el README y el CONTRATO.md). Después pregúntame qué páginas, listas u hojas de cálculo usa hoy mi equipo por enlace (incluidos los artifacts de Claude) y dime, en lenguaje simple: cuáles podrían convertirse en una página de Artefatos Livres, dónde correrlo (en mi computador, en una VPS o solo como página estática) y qué perdería respecto a Claude. No instales ni cambies nada antes de mi sí. Con mi sí: descarga el kit, corre las pruebas, crea la primera página a partir de la plantilla que tenga más sentido, publícala, levanta el servidor y mándame el enlace para que lo abra.</p></div></div></div>
+<div class="step"><div class="b">3</div><div><h3>Di sí a lo que tenga sentido</h3><p>Abre el enlace que te mande, pon tu nombre, mándaselo a alguien del equipo y mira a los dos modificando la misma lista.</p></div></div>
+<div class="grid g2" style="margin-top:10px">
+<div class="card"><h3>🌐 ¿Quieres solo usarlo, sin instalar?</h3><p>No existe una versión en línea nuestra: la idea es justamente que la página quede contigo. Lo más cercano es publicar solo la página (sin los datos compartidos) en un hosting gratuito como GitHub Pages; así cada persona guarda sus propios datos en el navegador.</p></div>
+<div class="card"><h3>⬇️ ¿Dónde descargar?</h3><p>No hay instalador: es una carpeta con un programa en Python. Descarga el <a href="https://github.com/inematds/artefatos-livres/archive/refs/heads/main.zip">ZIP del kit</a> o mira el <a href="https://github.com/inematds/artefatos-livres" rel="noopener" target="_blank">repositorio</a>.</p></div>
+</div>
+<div class="card" style="margin-top:16px"><h3>🧑‍💻 ¿Eres técnico?</h3><p>Comandos, cómo ponerlo en una VPS con dirección segura (HTTPS), seguridad y pruebas están en el README.</p><p><a class="btn" href="https://github.com/inematds/artefatos-livres#instalação-técnica" rel="noopener" target="_blank">Ver la parte técnica (en portugués)</a></p></div>
+</div></section>
+<section id="base"><div class="wrap">
+<span class="chip">De dónde viene</span>
+<h2>La propia Anthropic <span class="amb">señala la salida</span></h2>
+<div class="grid g2">
+<div class="card"><h3>📄 "Instalar artifact como app" (centro de ayuda de Claude)</h3><p>Beta, en todos los planes, solo en Claude para Mac y Windows. No está disponible en Linux, en la web ni en el celular. Los artifacts hechos con plantilla (Docs, Slides, Sheets) no se instalan. Anthropic no revisa las apps antes de que las instales.</p><p><a href="https://support.claude.com/en/articles/18516354-install-an-artifact-as-an-app" rel="noopener" target="_blank">Leer el artículo</a></p></div>
+<div class="card"><h3>📄 Documentación de los artifacts</h3><p>En el centro de ayuda: los artifacts empiezan privados, quien los abre entra con la cuenta de Claude y el uso cuenta en el plan de cada persona. En la documentación de Claude Code, en "qué no es un artifact": una página única, sin servidor detrás; "para una herramienta interna con servidor, publícala en tu propia infraestructura".</p><p><a href="https://support.claude.com/en/articles/17153992-what-are-artifacts-and-how-do-i-use-them" rel="noopener" target="_blank">Leer sobre artifacts</a></p></div>
+</div>
+<p class="fonte">Artefatos Livres no es de Anthropic ni está vinculado a ella. Copia la idea (página por enlace, versiones, app, datos, comentarios) con piezas abiertas de la web: la app es un PWA, recurso estándar de los navegadores, y los datos quedan en una base SQLite, un archivo común.</p>
+</div></section>
+<section id="prova"><div class="wrap">
+<span class="chip">La prueba</span>
+<h2>Probado con <span class="amb">dos personas en la misma lista</span></h2>
+<div class="prova">
+<ol class="tl">
+<li><b>Ana y Bia abren el mismo enlace</b> en dos navegadores separados, como dos personas en casas distintas.</li>
+<li><b>Ana crea la tarea "Mandar propuesta".</b> En pocos segundos aparece en la pantalla de Bia.</li>
+<li><b>Bia la marca como hecha.</b> La pantalla de Ana tacha la tarea y la barra de progreso se llena.</li>
+<li><b>Bia comenta</b> "¿puedes poner fecha límite en cada tarea?". El mensaje aparece para Ana, con nombre y hora.</li>
+<li><b>El navegador reconoce la página como app</b> (aparecen el ícono y el "instalar") y se abre sin internet con la última versión.</li>
+</ol>
+<blockquote>Ninguna IA participó en la prueba: el kit corre solo. La prueba encontró un defecto real (la clave del enlace no llegaba a los datos y la página caía en el modo "solo en este navegador"), corregido antes de publicar.</blockquote>
+<p class="rod">Además de la prueba en el navegador, 18 pruebas automáticas verifican enlace con clave, versiones, app, datos, comentarios, IA opcional y exportación. Hecho el 25/11/2026, Linux, Chromium y Python 3.</p>
+</div>
+</div></section>
+<section id="faq"><div class="wrap">
+<span class="chip">Preguntas</span>
+<h2>Antes de que <span class="amb">preguntes</span></h2>
+<div class="grid g2">
+<div class="card"><h3>¿Necesito programar?</h3><p>No. Se lo pides a tu IA con el texto de "Cómo empezar". Para cambiar la página, también basta pedirlo.</p></div>
+<div class="card"><h3>¿Cuesta algo?</h3><p>El kit es gratuito y abierto. En tu computador, costo cero. Para que todos abran desde fuera, necesitas un servidor tuyo (una VPS pequeña sirve).</p></div>
+<div class="card"><h3>¿Entonces dejo Claude?</h3><p>No hace falta. Usa Claude, Codex u otra IA para escribir las páginas. Lo que cambia es dónde viven la página y los datos: contigo.</p></div>
+<div class="card"><h3>¿Sirve para datos sensibles?</h3><p>Quien tiene el enlace entra y edita. Para salarios, salud o datos de clientes, usa un sistema con inicio de sesión por persona. El kit es para el "software pequeño" del día a día.</p></div>
+<div class="card"><h3>¿Funciona en el celular?</h3><p>Se abre en cualquier celular. Instalar como app funciona en Android con Chrome; en iPhone, usa "Añadir a pantalla de inicio" de Safari.</p></div>
+<div class="card"><h3>¿Y si ya tengo artifacts en Claude?</h3><p>El contenido del artifact es una página común. Pídele a la IA que lo traiga al kit siguiendo el contrato del repositorio; los datos los exportas de Claude y los importas en la página.</p></div>
+</div>
+<p class="sub" style="margin-top:28px">¿Qué página usaría primero tu equipo si fuera de verdad suya? Ven a contarlo y a ver otros kits gratuitos en <a href="https://inema.club" rel="noopener" target="_blank">inema.club</a>, directo en internet.</p>
+</div></section>
+</main>
+<footer><div class="wrap">
+<span class="pill">Python 3</span><span class="pill">SQLite</span><span class="pill">PWA</span><span class="pill">cualquier IA</span><span class="pill">MIT</span>
+<p><a href="https://github.com/inematds/artefatos-livres" rel="noopener" target="_blank">github.com/inematds/artefatos-livres</a> · <a href="https://inema.club" rel="noopener" target="_blank">INEMA.CLUB</a></p>
+</div></footer>
+<script>
+(function(){var b=document.body,t=document.getElementById('themeToggle');
+try{if(localStorage.getItem('tema')==='light'){b.classList.add('light');t.textContent='☀️'}}catch(e){}
+t.onclick=function(){b.classList.toggle('light');var l=b.classList.contains('light');t.textContent=l?'☀️':'🌙';try{localStorage.setItem('tema',l?'light':'dark')}catch(e){}};
+document.querySelectorAll('.copiar').forEach(function(bt){bt.onclick=function(){var p=bt.parentNode.querySelector('p');var txt=p.textContent;
+(navigator.clipboard?navigator.clipboard.writeText(txt):Promise.reject()).then(function(){bt.textContent='Copiado ✓'},function(){var r=document.createRange();r.selectNodeContents(p);var s=getSelection();s.removeAllRanges();s.addRange(r);bt.textContent='Seleccionado: Ctrl+C'});setTimeout(function(){bt.textContent='Copiar'},2500)}});})();
+</script>
+</body>
+</html>
